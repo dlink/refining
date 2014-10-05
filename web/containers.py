@@ -59,12 +59,14 @@ class Containers(HtmlPage):
                             id='customer_type') + br()
 
         # dentist name
-        dentist_name = 'Dentist Name: ' +\
-            input(type='textfield', name='dentist_name')
+        dentist_name = span('Dentist Name: ' +\
+                           input(type='textfield', name='dentist_name'),
+                           id='dentist_name_container')
 
         # dentist phone
-        dentist_phone = 'Dentist Phone: ' +\
-            input(type='textfield', name='dentist_name')
+        dentist_phone = span('Dentist Phone: ' +\
+                            input(type='textfield', name='dentist_phone'),
+                            id='dentist_phone_container')
 
         # dentist info
         dentist_info = div('<br>'.join([dentist_name,
