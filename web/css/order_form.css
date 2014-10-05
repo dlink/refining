@@ -1,0 +1,16 @@
+.menu {
+    float: left;
+    width: 20%;
+    border-style: solid
+}
+
+.orderForm {
+    // float: right;
+    // width: 70%;
+    // border-style: solid
+}
+
+.footer {
+    // clear:both;
+    // border-style: solid
+}
