@@ -1,7 +1,8 @@
 $(function() {
     // Hide/Show Forms
-    $('#order_form2').hide()
-    $('#order_form3').hide()
+    $('#order_form1').hide();
+    $('#order_form2').hide();
+    //$('#order_form3').hide();
     $('#next1').click(function() {
 	if (!validateForm1()) {
 	    return;
@@ -17,7 +18,7 @@ $(function() {
     });
     $('#next2').click(function() {
 	if (!validateForm2()) {
-	    return
+	    return;
 	}
 	$('#order_form1').hide();
 	$('#order_form2').hide();
@@ -28,9 +29,19 @@ $(function() {
 	$('#order_form2').show();
 	$('#order_form3').hide();
     });
+    $('#next3').click(function() {
+	if (!validateForm3()) {
+	    return;
+	}
+	alert('done');
+	/* $('#order_form1').hide();
+	$('#order_form2').hide();
+	$('#order_form3').hide();
+	$('#order_form3').show(); */
+    });
 
     // Hide/Show Dentist Info Section
-    $('#dentist_info').hide()
+    $('#dentist_info').hide();
     $('#customer_type').change(function() {
 	var ct = $("input[name='customer_type']:checked").val();
 	if (ct == 2 || ct == 4) {
@@ -101,5 +112,27 @@ function validateForm2() {
 	valid = false;
     }
 
-    return valid    
+    return valid    ;
+}
+
+/**
+ * Validate Form3
+ */
+function validateForm3() {
+    // Unset color of fields:
+    $('#order_form3 input').each(function() {
+	text_id = '#' + this.name + '_text';
+	$(text_id).css('color', '');
+    });
+
+    valid = true
+
+    $('#order_form3 input').each(function() {
+	if (!this.value) {
+	    text_id = '#' + this.name + '_text';
+	    $(text_id).css('color', 'red');
+	    valid = false;
+	}
+    });
+    return valid;
 }

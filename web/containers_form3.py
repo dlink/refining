@@ -1,3 +1,4 @@
+from vweb.htmltable import HtmlTable
 from vweb.html import *
 
 class ContainersForm3(object):
@@ -5,21 +6,32 @@ class ContainersForm3(object):
     def get(self):
         intro = p('Your address information')
 
-        name = 'Your Name: ' + input(type='textfield', name='name') + br()
+        fields = ['Your Name',
+                  'Business Name',
+                  'Address',
+                  'City',
+                  'State',
+                  'Zip',
+                  'Contact Name',
+                  'Email Address',
+                  'Confirm Email Address',
+                  'Phone Number']
 
-        business_name = 'Business Name: ' + \
-            input(type='textfield', name='bussiness_name') + br()
-
-        address = 'Address: ' + input(type='textfield', name='address') + br()
+        table = HtmlTable()
+        for field in fields:
+            name=field.lower().replace(' ', '_')
+            description_name = '%s_text' % name
+            description = span(field, id=description_name)
+            table.addRow([description, input(type='textfield', name=name, 
+                                             size=50)])
 
         # next/prev
+        next3 = span('Next>', id='next3', class_='textButton')
         prev3 = span('&lt;Prev', id='prev3', class_='textButton')
 
         return div(''.join([intro,
-                            name,
-                            business_name,
-                            address,
-                            prev3]),
+                            table.getTable(),
+                            prev3 + ' | ' + next3]),
                    
                    id='order_form3')
 
