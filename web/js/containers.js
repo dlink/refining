@@ -1,8 +1,8 @@
 $(function() {
     // Hide/Show Forms
-    $('#order_form1').hide();
+    $('#order_form1').show();
     $('#order_form2').hide();
-    //$('#order_form3').hide();
+    $('#order_form3').hide();
     $('#next1').click(function() {
 	if (!validateForm1()) {
 	    return;
