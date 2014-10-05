@@ -10,7 +10,7 @@ class Containers(HtmlPage):
         HtmlPage.__init__(self, 'Order Containers')
         self.javascript_src = [
             '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-            'js/container.js']
+            'js/containers.js']
         self.style_sheets = ['css/order_form.css']
 
     def getHtmlContent(self):
