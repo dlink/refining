@@ -40,7 +40,7 @@ $(function() {
 	}
     });
     // number fields
-    //$("input[name='single_jar']").numeric();
+    $(".numberField").css('text-align', 'right');
 
     // textButtons treatment
     $('.textButton').hover(function() {
