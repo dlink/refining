@@ -1,16 +1,5 @@
 $(function() {
-    // Hide/Show dentist info initial
-    $('#dentist_info').hide()
-    $('#customer_type').change(function() {
-	var ct = $("input[name='customer_type']:checked").val();
-	if (ct == 2 || ct == 4) {
-	    $('#dentist_info').show();
-	} else {
-	    $('#dentist_info').hide();
-	}
-    });
-
-    // form hide/Show
+    // Hide/Show Forms
     $('#order_form2').hide()
     $('#order_form3').hide()
     $('#next1').click(function() {
@@ -27,6 +16,9 @@ $(function() {
 	$('#order_form3').hide();
     });
     $('#next2').click(function() {
+	if (!validateForm2()) {
+	    return
+	}
 	$('#order_form1').hide();
 	$('#order_form2').hide();
 	$('#order_form3').show();
@@ -37,6 +29,18 @@ $(function() {
 	$('#order_form3').hide();
     });
 
+    // Hide/Show Dentist Info Section
+    $('#dentist_info').hide()
+    $('#customer_type').change(function() {
+	var ct = $("input[name='customer_type']:checked").val();
+	if (ct == 2 || ct == 4) {
+	    $('#dentist_info').show();
+	} else {
+	    $('#dentist_info').hide();
+	}
+    });
+    // number fields
+    //$("input[name='single_jar']").numeric();
 
     // textButtons treatment
     $('.textButton').hover(function() {
@@ -51,7 +55,7 @@ $(function() {
 
 /**
  * Validate Form1
-*/
+ */
 function validateForm1() {
     // Unset color of fields:
     $('#customer_type').css('color', '');
@@ -66,7 +70,6 @@ function validateForm1() {
 	valid = false;
     }
 
-    // alert($('#dentist_info').css('display'));
     if ($('#dentist_info').css('display') != 'none') {
 	if (!$("input[name='dentist_name']").val()) {
 	    $('#dentist_name_container').css('color', 'red');
@@ -78,4 +81,25 @@ function validateForm1() {
 	}
     }
     return valid;
+}
+
+/**
+ * Validate Form2
+ */
+function validateForm2() {
+    // Unset color of fields:
+    $('#single_jar_text').css('color', '');
+    $('#multiple_jars_text').css('color', '');
+    $('#patient_scrap_mailer_text').css('color', '');
+    
+    valid = true;
+    
+    if (!$("input[name='single_jar']").val() 
+	&& !$("input[name='multiple_jars']").val() 
+	&& !$("input[name='patient_scrap_mailer']").val()) {
+	$('#form2Intro').css('color', 'red');
+	valid = false;
+    }
+
+    return valid    
 }
