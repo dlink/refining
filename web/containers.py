@@ -72,7 +72,7 @@ class Containers(HtmlPage):
                            id='dentist_info') + br()
 
         # next
-        next1 = span('Next>', id='next1')
+        next1 = span('Next>', id='next1', class_='textButton')
 
         # put it together
         return div(''.join([intro,
@@ -98,8 +98,8 @@ class Containers(HtmlPage):
 
                      
         # next/prev
-        prev2 = span('&lt;Prev', id='prev2')
-        next2 = span('Next>', id='next2')
+        prev2 = span('&lt;Prev', id='prev2', class_='textButton')
+        next2 = span('Next>', id='next2', class_='textButton')
 
         return div(''.join([intro,
                             table.getTable(),
@@ -118,7 +118,7 @@ class Containers(HtmlPage):
         address = 'Address: ' + input(type='textfield', name='address') + br()
 
         # next/prev
-        prev3 = span('&lt;Prev', id='prev3')
+        prev3 = span('&lt;Prev', id='prev3', class_='textButton')
 
         return div(''.join([intro,
                             name,

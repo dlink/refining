@@ -33,7 +33,16 @@ $(function() {
 	$('#order_form2').show();
 	$('#order_form3').hide();
     });
-    
+
+
+    // textButtons treatment
+    $('.textButton').hover(function() {
+	$(this).css('cursor', 'pointer');
+	$(this).css('text-decoration', 'underline');
+    }, function() {
+	$(this).css('cursor', 'default');
+	$(this).css('text-decoration', 'none');
+    })
 });
 
 
