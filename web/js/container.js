@@ -14,6 +14,9 @@ $(function() {
     $('#order_form2').hide()
     $('#order_form3').hide()
     $('#next1').click(function() {
+	if (!validateForm1()) {
+	    return;
+	}
 	$('#order_form1').hide();
 	$('#order_form2').show();
 	$('#order_form3').hide();
@@ -46,5 +49,18 @@ $(function() {
 });
 
 
+/**
+ * Validate Form1
+*/
+function validateForm1() {
+    // Unset color of fields:
+    $('#customer_type').css('color', '');
 
-
+    // If not value set then set offending field to red and return false
+    var ct = $("input[name='customer_type']:checked").val();
+    if (!ct) {
+	$('#customer_type').css('color', 'red');
+	return false;
+    }
+    return true;
+}
